@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Klever</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/85711b228f.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/tab_icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/tab_icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/tab_icon/favicon-32x32.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <div id="main-loading-screen">
+        <img id="klever-loading-screen" src="../assets/images/logos/klever.png" alt="Klever">
+    </div>
+    <div id="mainBody">
+        <div id="loadingScreen">
+            <div id="loaderTop"></div>
+            <div id="loadingText">Loading page..</div>
+            <div id="loadingWrapper">
+                <svg id="loadingIcon" viewBox="25 25 50 50">
+                    <circle id="loadingProgress" r="20" cy="50" cx="50"></circle>
+                </svg>
+            </div>
+        </div>
+        <nav id="nav" class="theme-content light-mode">
+            <div class="navButtonsWrapper">
+                <div class="defaultButton navButtons" onclick="backToMainMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
+                    <span>Menu</span>
+                </div>
+                <div class="defaultButton navButtons" onclick="contentUnavailable(modePage)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M336 256c-20.56 0-40.44-9.18-56-25.84-15.13-16.25-24.37-37.92-26-61-1.74-24.62 5.77-47.26 21.14-63.76S312 80 336 80c23.83 0 45.38 9.06 60.7 25.52 15.47 16.62 23 39.22 21.26 63.63-1.67 23.11-10.9 44.77-26 61C376.44 246.82 356.57 256 336 256zm66-88zM467.83 432H204.18a27.71 27.71 0 01-22-10.67 30.22 30.22 0 01-5.26-25.79c8.42-33.81 29.28-61.85 60.32-81.08C264.79 297.4 299.86 288 336 288c36.85 0 71 9 98.71 26.05 31.11 19.13 52 47.33 60.38 81.55a30.27 30.27 0 01-5.32 25.78A27.68 27.68 0 01467.83 432zM147 260c-35.19 0-66.13-32.72-69-72.93-1.42-20.6 5-39.65 18-53.62 12.86-13.83 31-21.45 51-21.45s38 7.66 50.93 21.57c13.1 14.08 19.5 33.09 18 53.52-2.87 40.2-33.8 72.91-68.93 72.91zM212.66 291.45c-17.59-8.6-40.42-12.9-65.65-12.9-29.46 0-58.07 7.68-80.57 21.62-25.51 15.83-42.67 38.88-49.6 66.71a27.39 27.39 0 004.79 23.36A25.32 25.32 0 0041.72 400h111a8 8 0 007.87-6.57c.11-.63.25-1.26.41-1.88 8.48-34.06 28.35-62.84 57.71-83.82a8 8 0 00-.63-13.39c-1.57-.92-3.37-1.89-5.42-2.89z"/>
+                    </svg>
+                    <span>About</span>
+                </div>
+            </div>
+            <div class="themeAndWallet">
+                <div class="toggleTheme">
+                    <label class="switchThemes">
+                        <input type="checkbox" id="theme">
+                        <span class="themeSlider"></span>
+                    </label>
+                </div>
+                <div id="playerWallet">
+                    <div class="walletWrapper">
+                        <button class="addCoins" onclick="buyCoins()"><ion-icon name="add-circle">+</ion-icon></button>
+                        <img class="coinIcon" src="../assets/images/game-1/coin.png">
+                        <div class="centeredContainer coinBalance"><span class="coins">100</span></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="storyDialogueScreen">
+            <button type="button" class="buttonSkip" onclick="finalDialogue()">
+                Skip <ion-icon class="fastForward" name="play-forward-sharp">Dialogue</ion-icon>
+            </button>
+            <div class="characterDialogueContainer">
+                <!-- <img class="storyCharacter" src="../assets/images/characters/char.png" alt="Character"> -->
+                <div class="speechBubble">
+                    <span class="dialogue"></span>
+                </div>
+                <div class="dialogueControls">
+                    <button class="dialogueButtons" onclick="showDialogue(-1)" id="prev"><ion-icon name="arrow-back">Prev</ion-icon></button>
+                    <button class="dialogueButtons" onclick="showDialogue(1)" id="next"><ion-icon name="arrow-forward">Next</ion-icon></button>
+                </div>
+            </div>
+        </div>
+        <div id="landingPage">
+            <section id="mainMenu">
+                <div id="menuOptions">
+                    <div id="menuButtonList">
+                        <div id="kleverTitle">
+                            <img  src="../assets/images/logos/klever.png"  alt="Image did not load properly." title="Klever">
+                        </div>
+                        <button id="mainMenuStartButton" class="menuButtons" onclick="playGame()">
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                            Start
+                        </button>
+                        <button class="menuButtons" onclick="logOut()">
+                            <ion-icon name="exit-outline"></ion-icon>
+                            Log out
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="loginPage">
+            <div class="loginModal">
+                <!-- Login Form -->
+                <form id="loginForm" class="loginPanel">
+                    <div class="loginLogoContainer">
+                        <img src="../assets/images/logos/graylogo.png" alt="logo">
+                    </div>
+                    <div id="loginContent">
+                        <div class="inputFields">
+                            <input id="username" type="text" required>
+                            <label>Username</label>
+                        </div>
+                        <div class="inputFields">
+                            <input id="password" class="marginBottom5px" type="password" required>
+                            <label>Password</label>
+                            <div class="showPasswordContainer">
+                                <ion-icon class="showPasswordIcon" name="eye-off" onclick="showPassword()"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="container notificationContainer" id="loginNotificationContainer">
+                            <div class="notificationStatus" id="loginNotificationStatus">
+                                <ion-icon name="placeholder" class="notificationIcon" id="loginNotificationIcon"></ion-icon>
+                                <span class="notificationMessage" id="loginNotificationMessage"></span>
+                            </div>
+                        </div>
+                        <div class="centeredContainer marginTop30px">
+                            <button id="loginButton" type="button" class="defaultButton buttonRegular" onclick="userLoginTrigger()">Login</button>
+                        </div>
+                        <div class="centeredContainer marginTop30px">
+                            <p>Don't have an account? <a onclick="">Sign up</a></p>
+                        </div>
+                    </div>
+                </form>
+                <!-- Registration Form -->
+                <form id="registerForm" class="loginPanel" method="post" action="action.php">
+                    <div class="buttonPreviousPanel" onclick="userLoginPanel()">
+                        <ion-icon name="arrow-back">Go Back</ion-icon>
+                    </div>
+                    <div class="loginLogoContainer">
+                        <img src="../assets/images/logos/graylogo.png" alt="logo">
+                    </div>
+                    <div id="registerContent">
+                        <div class="inputFields">
+                            <input id="userRegister" type="text" name="registerUser" required>
+                            <label>Username</label>
+                        </div>
+                        <div class="inputFields">
+                            <input id="passwordRegister" class="marginBottom5px" type="password" name="registerPass" required>
+                            <label>Password</label>
+                            <div class="showPasswordContainer">
+                                <ion-icon class="showPasswordIcon" name="eye-off" onclick="showPassword()"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="container marginTop30px">
+                            <button type="submit" value="Submit" class="defaultButton buttonRegular">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="gameModeSelection">
+            <div id="gameModeOptionsContainer">
+                <div id="gameModeGrid" class="grid">
+                    <div class="gameModes" onclick="selectGameMode(gameOne)">
+                        <div class="gameInfo theme-content light-mode">
+                            <img src="../assets/images/modes/I_know_eat.png" alt="Image did not load properly">
+                            <div class="gameDescription">
+                                <p>Test your knowledge on disasters with I no eat: the ultimate quiz game!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameModes" onclick="selectGameMode(gameTwo)">
+                        <div class="gameInfo theme-content light-mode">
+                            <img src="https://placehold.co/600x400?text=Game\nNot+Available&font=roboto" alt="Image did not load properly">
+                            <div class="gameDescription">
+                                <p>Plan your escape, prepare for the quake, and conquer the challenge in Quake Escape!</p>
+                            </div>
+                            <div class="gameTag">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M436.67 184.11a27.17 27.17 0 01-38.3 0l-22.48-22.49a27.15 27.15 0 010-38.29l50.89-50.89a.85.85 0 00-.26-1.38C393.68 57 351.09 64.15 324.05 91c-25.88 25.69-27.35 64.27-17.87 98a27 27 0 01-7.67 27.14l-173 160.76a40.76 40.76 0 1057.57 57.54l162.15-173.3a27 27 0 0126.77-7.7c33.46 8.94 71.49 7.26 97.07-17.94 27.49-27.08 33.42-74.94 20.1-102.33a.85.85 0 00-1.36-.22z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="30"/><path d="M224 284c-17.48-17-25.49-24.91-31-30.29a18.24 18.24 0 01-3.33-21.35 20.76 20.76 0 013.5-4.62l15.68-15.29a18.66 18.66 0 015.63-3.87 18.11 18.11 0 0120 3.62c5.45 5.29 15.43 15 33.41 32.52M317.07 291.3c40.95 38.1 90.62 83.27 110 99.41a13.46 13.46 0 01.94 19.92L394.63 444a14 14 0 01-20.29-.76c-16.53-19.18-61.09-67.11-99.27-107" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="30"/><path d="M17.34 193.5l29.41-28.74a4.71 4.71 0 013.41-1.35 4.85 4.85 0 013.41 1.35h0a9.86 9.86 0 008.19 2.77c3.83-.42 7.92-1.6 10.57-4.12 6-5.8-.94-17.23 4.34-24.54a207 207 0 0119.78-22.6c6-5.88 29.84-28.32 69.9-44.45A107.31 107.31 0 01206.67 64c22.59 0 40 10 46.26 15.67a89.54 89.54 0 0110.28 11.64 78.92 78.92 0 00-9.21-2.77 68.82 68.82 0 00-20-1.26c-13.33 1.09-29.41 7.26-38 14-13.9 11-19.87 25.72-20.81 44.71-.68 14.12 2.72 22.1 36.1 55.49a6.6 6.6 0 01-.34 9.16l-18.22 18a6.88 6.88 0 01-9.54.09c-21.94-21.94-36.65-33.09-45-38.16s-15.07-6.5-18.3-6.85a30.85 30.85 0 00-18.27 3.87 11.39 11.39 0 00-2.64 2 14.14 14.14 0 00.42 20.08l1.71 1.6a4.63 4.63 0 010 6.64L71.73 246.6a4.71 4.71 0 01-3.41 1.4 4.86 4.86 0 01-3.41-1.35l-47.57-46.43a4.88 4.88 0 010-6.72z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="30"/></svg>
+                                <span>Work in progress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameModes" onclick="selectGameMode(gameThree)">
+                        <div class="gameInfo theme-content light-mode">
+                            <img src="../assets/images/modes/dds.png" alt="Image did not load properly">
+                            <div class="gameDescription">
+                                <p>Race against the clock to match disaster-themed cards in this memory game</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameModes" onclick="selectGameMode(gameFour)">
+                        <div class="gameInfo theme-content light-mode">
+                            <img src="../assets/images/modes/roll.jpg" alt="Image did not load properly">
+                            <div class="gameDescription">
+                                <p>Spin the wheel and uncover fascinating facts about various disasters!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameModes" onclick="selectGameMode(gameFive)">
+                        <div class="gameInfo theme-content light-mode">
+                            <img src="../assets/images/modes/inferno.png" alt="Image did not load properly">
+                            <div class="gameDescription">
+                                <p>Ignite your word skills in this fiery game that explores the world of disasters!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameOne">
+            <nav>
+                <button class="defaultButton buttonRegular" onclick="closeGame()">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    <span>Exit</span>
+                </button>
+            </nav>
+            <div id="gameplayArea">
+                <div class="questionSection">
+                    <span id="questionNumber"></span>
+                    <p id="questionText"></p>
+                </div>
+                <div class="answersContainer">
+                    <div class="countdownTimerContainer">
+                        <div class="countdownTimeDisplay">
+                            <span id="countdownTime"></span>
+                        </div>
+                        <div class="countdownTimerVisual">
+                            <div class="countdownTimerProgress"></div>
+                        </div>
+                    </div>
+                    <button class="responseOptionButton">
+                        <i class="fa-solid fa-heart answerKeyIcon"></i>
+                        <span class="answerKey"></span>
+                    </button>
+                    <button class="responseOptionButton">
+                        <i class="fa-solid fa-square answerKeyIcon"></i>
+                        <span class="answerKey"></span>
+                    </button>
+                    <button class="responseOptionButton">
+                        <i class="fa-solid fa-star answerKeyIcon"></i>
+                        <span class="answerKey"></span>
+                    </button>
+                    <button class="responseOptionButton">
+                        <i class="fa-solid fa-diamond answerKeyIcon"></i>
+                        <span class="answerKey"></span>
+                    </button>
+                </div>
+                <div class="centeredContainer">
+                    <div class="walletWrapper">
+                        <img class="coinIcon" src="../assets/images/game-1/coin.png">
+                        <div class="centeredContainer coinBalance"><span class="coins">100</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameTwo">
+            <nav>
+                <button class="defaultButton buttonRegular" onclick="closeGame()">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    <span>Exit</span>
+                </button>
+            </nav>
+            <div id="board" class="container">
+                <div id="boardCellGrid"></div>
+                <div id="player"></div>
+                <button id="rollDiceButton" class="defaultButton buttonRegular" onclick="movePlayerAfterDiceRoll()">Move</button>
+                <div class="centeredContainer">
+                    <div class="walletWrapper">
+                        <img class="coinIcon" src="../assets/images/game-1/coin.png">
+                        <div class="centeredContainer coinBalance"><span class="coins">100</span></div>
+                    </div>
+                </div>
+            </div>
+            <div id="questionPrompt">
+                <div class="questionContainer">
+                    <span id="gameTwoQuestion">Place Holder</span>
+                </div>
+                <div class="questionChoices">
+                    <button class="questionAnswers"></button>
+                    <button class="questionAnswers"></button>
+                </div>
+            </div>
+        </div>
+        <div id="gameThree">
+            <nav>
+                <button class="defaultButton buttonRegular" onclick="closeGame()">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    <span>Exit</span>
+                </button>
+            </nav>
+            <div id="gameThreeWrapper">
+                <div class="gameThreeBoard">
+                    <div class="movesmade">
+                        <div id="moves-count"></div>
+                    </div>
+                    <div class="gameContainer"></div>
+                    <div class="centeredContainer marginTop30px">
+                        <div class="walletWrapper">
+                            <img class="coinIcon" src="../assets/images/game-1/coin.png">
+                            <div class="centeredContainer coinBalance"><span class="coins">100</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameFour">
+            <nav>
+                <button class="defaultButton buttonRegular" onclick="closeGame()">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    <span>Exit</span>
+                </button>
+            </nav>
+            <div class="spinnerWrapper">
+                <div class="spinnerContainer">
+                  <canvas id="wheel"></canvas>
+                  <button id="spinButton" onclick="spinWheel()">Spin</button>
+                  <img src="../assets/images/icons/arrow.png" alt="spinner-arrow" />
+                </div>
+            </div>
+            <div id="selectedDisasterWrapper">
+                <div class="centeredContainer">
+                    <img id="disasterImage" src="#" alt="Image did not load properly">
+                </div>
+                <div id="topicValue">
+                    <p></p>
+                </div>
+                <div class="centeredContainer openDisasterGuide">
+                    <button class="defaultButton buttonRegular" onclick="viewGuide()">View Guide</button>
+                    <button class="defaultButton buttonRegular" onclick="closeGame()">Back</button>
+                </div>
+            </div>
+        </div>
+        <div id="gameFive">
+            <nav>
+                <button class="defaultButton buttonRegular" onclick="closeGame()">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    <span>Exit</span>
+                </button>
+            </nav>
+            <div class="gameFiveContainer">
+                <h1>Word Scramble</h1>
+                <div id="word"></div>
+                <div class="inputFields">
+                    <input type="text" id="guessInput" required>
+                    <label>Guess</label>
+                </div>
+                <div id="playerChoices">
+                    <button class="defaultButton buttonRegular" id="guessButton">Guess</button>
+                    <button class="defaultButton buttonRegular" id="passButton">Pass</button>
+                </div>
+                <div id="counter">Words Solved: <span id="wordCount">0</span></div>
+            </div>
+        </div>
+        <div id="gameOverScreen">
+            <div class="gameOverWrapper">
+                <div id="gameOverContentWrapper" class="theme-content light-mode">
+                    <img id="celebrationIcon" src="../assets/images/icons/celebration.png" alt="Image failed to load">
+                    <h1 id="gameOverHeader">Game has ended!</h1>
+                </div>
+            </div>
+            <div id="gameOverButtonsContainer">
+                <button onclick="closeGame()" class="gameEndButton theme-content light-mode">Back</button>
+                <button onclick="restartGame()" class="gameEndButton theme-content light-mode">Play Again</button>
+                <button onclick="logOut()" class="gameEndButton theme-content light-mode">Log Out</button>
+            </div>
+            <div class="gameOverWrapper">
+                <div id="gameOverFactsContainer">
+                    <img id="triviaIcon" src="../assets/images/icons/lightbulb.png" alt="Image failed to load">
+                    <div id="gameOverFactsContent">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum numquam esse nihil consectetur dolorum ad magni distinctio, modi placeat officia laboriosam repellat error ducimus. Non molestiae ducimus inventore asperiores, sequi libero maxime eius dignissimos eaque aliquam, provident magni, aperiam eveniet accusantium vero quos! Vel facilis harum reiciendis praesentium a perferendis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="paymentPage">
+            <div id="paymentModal">
+                <div id="paymentTab">
+                    <div id="paymentTabContainer">
+                        <div id="prevTab" class="paymentTabs" onclick="previousShopTab()">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
+                        </div>
+                        <div id="storeTab" class="paymentTabs active-tab">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 448V240M64 240v208M382.47 48H129.53c-21.79 0-41.47 12-49.93 30.46L36.3 173c-14.58 31.81 9.63 67.85 47.19 69h2c31.4 0 56.85-25.18 56.85-52.23 0 27 25.46 52.23 56.86 52.23s56.8-23.38 56.8-52.23c0 27 25.45 52.23 56.85 52.23s56.86-23.38 56.86-52.23c0 28.85 25.45 52.23 56.85 52.23h1.95c37.56-1.17 61.77-37.21 47.19-69l-43.3-94.54C423.94 60 404.26 48 382.47 48zM32 464h448M136 288h80a24 24 0 0124 24v88h0-128 0v-88a24 24 0 0124-24zM288 464V312a24 24 0 0124-24h64a24 24 0 0124 24v152"/></svg>
+                            <span>Store</span>
+                        </div>
+                        <div id="payTab" class="paymentTabs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><rect x="48" y="96" width="416" height="320" rx="56" ry="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="60" d="M48 192h416M128 300h48v20h-48z"/></svg>
+                            <span>Payment</span>
+                        </div>
+                        <div id="completeTab" class="paymentTabs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M53.12 199.94l400-151.39a8 8 0 0110.33 10.33l-151.39 400a8 8 0 01-15-.34l-67.4-166.09a16 16 0 00-10.11-10.11L53.46 215a8 8 0 01-.34-15.06zM460 52L227 285" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                            <span>Thanks</span>
+                        </div>
+                    </div>
+                    <div id="closeButtonWrapper">
+                        <button onclick="closeShop()" class="paymentTabs closeButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
+                            <span>Exit</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="paymentContainer">
+                    <div id="paymentPanel">
+                        <div id="shopPanel">
+                            <div id="paymentLogo">
+                                <img src="../assets/images/logos/graylogo.png" alt="Image did not load properly.">
+                            </div>
+                            <span id="paymentState">Select a pack to continue.</span>
+                            <div id="paymentStatus">
+                                <span id="selectedProductHeader">Selected Pack</span>
+                                <div id="selectedProduct">
+                                    <div id="bundleContent" class="bundleContent">
+                                        <div class="imageWrapper">
+                                            <img id="bundleImg" src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                        </div>
+                                        <span id="bundleInfo" class="bundleInfo"></span>
+                                    </div>
+                                </div>
+                                <span id="bundlePrice"></span>
+                            </div>
+                            <div id="proceedButtonPanel">
+                                <button id="proceedButton" class="checkoutButton" onclick="checkout()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><circle cx="176" cy="416" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="400" cy="416" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M48 80h64l48 272h256"/><path d="M160 288h249.44a8 8 0 007.85-6.43l28.8-144a8 8 0 00-7.85-9.57H128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                    <span>Checkout</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="shopPay">
+                            <div id="paymentInputs">
+                                <h1 id="paymentHeader">Direct Payment</h1>
+                                <div class="inputFields">
+                                    <input id="adminKey" type="text" required>
+                                    <label>Admin Key</label>
+                                </div>
+                                <div class="inputFields">
+                                    <input id="creditKey" class="marginBottom5px" type="text" required>
+                                    <label>Credit Key</label>
+                                </div>
+                                <button class="checkoutButton marginTop30px" onclick="confirmPurchase()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><circle cx="176" cy="416" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="400" cy="416" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M48 80h64l48 272h256"/><path d="M160 288h249.44a8 8 0 007.85-6.43l28.8-144a8 8 0 00-7.85-9.57H128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                    <span>Confirm</span>
+                                </button>
+                            </div> 
+                        </div>
+                        <div id="shopThanks">
+                            <div class="centeredContainer">
+                                <img src="../assets/images/icons/success.png" alt="Image did not load.">
+                            </div>
+                            <span>Thank you for your purchase!</span>
+                        </div>
+                    </div>
+                    <div id="coinsBundleGrid">
+                        <button class="coinsBundle">
+                            <div class="bundleContent">
+                                <span class="bundlePrice">10 PHP</span>
+                                <div class="imageWrapper">
+                                    <img src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                </div>
+                                <span class="bundleInfo">300 Coins</span>
+                            </div>
+                        </button>
+                        <button class="coinsBundle">
+                            <div class="bundleContent">
+                                <span class="bundlePrice">20 PHP</span>
+                                <div class="imageWrapper">
+                                    <img src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                </div>
+                                <span class="bundleInfo">600 Coins</span>
+                            </div>
+                        </button>
+                        <button class="coinsBundle">
+                            <div class="bundleContent">
+                                <span class="bundlePrice">30 PHP</span>
+                                <div class="imageWrapper">
+                                    <img src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                </div>
+                                <span class="bundleInfo">900 Coins</span>
+                            </div>
+                        </button>
+                        <button class="coinsBundle">
+                            <div class="bundleContent">
+                                <span class="bundlePrice">40 PHP</span>
+                                <div class="imageWrapper">
+                                    <img src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                </div>
+                                <span class="bundleInfo">1200 Coins</span>
+                            </div>
+                        </button>
+                        <button class="coinsBundle">
+                            <div class="bundleContent">
+                                <span class="bundlePrice">50 PHP</span>
+                                <div class="imageWrapper">
+                                    <img src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                </div>
+                                <span class="bundleInfo">1500 Coins</span>
+                            </div>
+                        </button>
+                        <button class="coinsBundle">
+                            <div class="bundleContent">
+                                <span class="bundlePrice">60 PHP</span>
+                                <div class="imageWrapper">
+                                    <img src="../assets/images/game-1/coin.png" alt="Image did not load">
+                                </div>
+                                <span class="bundleInfo">1800 Coins</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div id="otherPaymentMethods">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><rect x="48" y="96" width="416" height="320" rx="56" ry="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="60" d="M48 192h416M128 300h48v20h-48z"/></svg>
+                        <h1>Other Payment Methods</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contentUnavailablePage">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M436.67 184.11a27.17 27.17 0 01-38.3 0l-22.48-22.49a27.15 27.15 0 010-38.29l50.89-50.89a.85.85 0 00-.26-1.38C393.68 57 351.09 64.15 324.05 91c-25.88 25.69-27.35 64.27-17.87 98a27 27 0 01-7.67 27.14l-173 160.76a40.76 40.76 0 1057.57 57.54l162.15-173.3a27 27 0 0126.77-7.7c33.46 8.94 71.49 7.26 97.07-17.94 27.49-27.08 33.42-74.94 20.1-102.33a.85.85 0 00-1.36-.22z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="16"/><path d="M224 284c-17.48-17-25.49-24.91-31-30.29a18.24 18.24 0 01-3.33-21.35 20.76 20.76 0 013.5-4.62l15.68-15.29a18.66 18.66 0 015.63-3.87 18.11 18.11 0 0120 3.62c5.45 5.29 15.43 15 33.41 32.52M317.07 291.3c40.95 38.1 90.62 83.27 110 99.41a13.46 13.46 0 01.94 19.92L394.63 444a14 14 0 01-20.29-.76c-16.53-19.18-61.09-67.11-99.27-107" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M17.34 193.5l29.41-28.74a4.71 4.71 0 013.41-1.35 4.85 4.85 0 013.41 1.35h0a9.86 9.86 0 008.19 2.77c3.83-.42 7.92-1.6 10.57-4.12 6-5.8-.94-17.23 4.34-24.54a207 207 0 0119.78-22.6c6-5.88 29.84-28.32 69.9-44.45A107.31 107.31 0 01206.67 64c22.59 0 40 10 46.26 15.67a89.54 89.54 0 0110.28 11.64 78.92 78.92 0 00-9.21-2.77 68.82 68.82 0 00-20-1.26c-13.33 1.09-29.41 7.26-38 14-13.9 11-19.87 25.72-20.81 44.71-.68 14.12 2.72 22.1 36.1 55.49a6.6 6.6 0 01-.34 9.16l-18.22 18a6.88 6.88 0 01-9.54.09c-21.94-21.94-36.65-33.09-45-38.16s-15.07-6.5-18.3-6.85a30.85 30.85 0 00-18.27 3.87 11.39 11.39 0 00-2.64 2 14.14 14.14 0 00.42 20.08l1.71 1.6a4.63 4.63 0 010 6.64L71.73 246.6a4.71 4.71 0 01-3.41 1.4 4.86 4.86 0 01-3.41-1.35l-47.57-46.43a4.88 4.88 0 010-6.72z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+            <span>Sorry, this content is not yet available.</span>
+            <button onclick="backToMainMenu()">Go back</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+<script src="scripts/MAIN.js"></script>
+<script src="scripts/DIALOGUE.js"></script>
+<script src="scripts/LOGIN.js"></script>
+<script src="scripts/SHOP.js" async></script>
+<script src="scripts/GAMEMODES.js" async></script>
+<script src="scripts/COINS.js" async></script>
+<script src="scripts/games/game-1.js" async></script>
+<script src="scripts/games/game-2.js" async></script>
+<script src="scripts/games/game-3.js" async></script>
+<script src="scripts/games/game-4.js"></script>
+<script src="scripts/games/game-5.js" async></script>
+</html>

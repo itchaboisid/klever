@@ -1,0 +1,2211 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:wght@100..900&family=Readex+Pro:wght@160..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    /* ? Fonts */
+    --Inter: 'Inter', sans-serif;
+    --Gabarito: 'Gabarito', sans-serif;
+    --Readexpro: 'Readex Pro', sans-serif;
+    --Ubuntu: 'Ubuntu', sans-serif;
+
+    --default-font: var(--Readexpro), system-ui, -apple-system, BlinkMacSystemFont;
+    --secondary-font: var(--Inter), system-ui, -apple-system, BlinkMacSystemFont;
+    --tertiary-font: var(--Gabarito), system-ui, -apple-system, BlinkMacSystemFont;
+    --fourth-font: var(var(--Ubuntu)), system-ui, -apple-system, BlinkMacSystemFont;
+
+    /* ? Font sizes */
+    --default-font-size: clamp(16px, 1.125rem, 1.5rem);
+    --secondary-font-size: clamp(14px, 1rem, 1.25rem);
+    --tertiary-font-size: clamp(12px, .95rem, 1rem);
+    --medium-font-size: clamp(20px, 1.625rem, 2rem);
+    --large-font-size: clamp(26px, 2rem, 2.25rem);
+    
+    /* ? Theme */
+    --white: #f4f4f4;
+    --grey: #c2c2c2;
+    --black: #0A090C;
+    --orange: #FF6542;
+    --red: #f53131;
+    --redder: #690808;
+    --green: #38b35d;
+    --blue: #2E5EAA;
+    --yellow: #e5b400;
+    --purple: #645E9D;
+    --blue-gradient: linear-gradient(to bottom right,  #2E5EAA, #645E9D);
+    --orange-gradient: linear-gradient(to bottom right, #FF6542, #88292F);
+
+    /* Game Theme */
+    --active: var(--orange);
+    --theme-inactive: var(--grey);
+    --theme-warning: var(---red);
+    --theme-success: var(--theme-blue);
+
+    /* ? Shades */
+    --black-light: #26242E;
+    --orange-light: #FF8A70;
+    --orange-shade: #8f1a00;
+    --purple-light: #8480B3;
+    --purple-shade: #494573;
+
+    /* ? State Themes */
+    --warning: var(--red);
+    --success: var(--green);
+    --info: var(--blue);
+    --active: var(--orange);
+    --inactive: var(--grey);
+    --hovered: var(--orange);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: var(--default-font);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+a {
+    color: var(--active);
+}
+
+a:hover {
+    text-decoration: underline 2px solid var(--active);
+    cursor: pointer;
+}
+
+h1 {
+    font-size: var(--medium-font-size);
+    text-align: center;
+}
+
+.animate__animated.animate__fadeInLeft, .animate__animated.animate__fadeInRight {
+    --animate-duration: .3s;
+}
+
+/* ! Utility */
+.dark-mode {
+    color: var(--white);
+    background-color: var(--black);
+    fill: var(--white);
+    transition: .3s ease;
+}
+
+.dark-mode-accent {
+    color: var(--white);
+    background-color: var(--black-light);
+    fill: var(--white);
+}
+
+.light-mode {
+    color: var(--black);
+    background-color: var(--white);
+    fill: var(--black);
+    transition: .3s ease;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.centeredContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    text-align: justify;
+}
+
+.textCenter {
+    text-align: center !important;
+}
+
+.marginTop30px {
+    margin-top: 30px;
+}
+
+.marginBottom5px {
+    margin-bottom: 5px;
+}
+
+/* ! Pages */
+#landingPage {
+    display: none;
+    justify-content: flex-end;
+}
+
+#interactiveGame, #mainMenu {
+    display: flex;
+    position: relative;
+    flex: 1;
+    height: 100vh;
+    align-items: center;
+    z-index: 1;
+}
+
+/* ! Main Menu */
+#mainMenu {
+    justify-content: flex-end;
+}
+
+#kleverTitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+#kleverTitle > img {
+    width: 600px;
+    height: auto;
+}
+
+#menuButtonList {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    text-align: right;
+}
+
+.menuButtons {
+    color: var(--white);
+    background-color: transparent;
+    font-size: 100px;
+    font-weight: bold;
+    padding: 1rem 2rem 1rem 10rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    outline: none;
+    border: none;
+}
+
+.menuButtons:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+  
+.menuButtons:hover, 
+.menuButtons:focus, 
+.menuButtons:active {
+    color: var(--active);
+    cursor: pointer;
+}
+
+.menuButtons:hover:before, 
+.menuButtons:focus:before, 
+.menuButtons:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.menuButtons > ion-icon {
+    opacity: 0;
+    margin-right: 20px;
+    transition: .3s;
+    transform: translateX(-50px);
+}
+
+.menuButtons:hover > ion-icon,
+.menuButtons:focus > ion-icon,
+.menuButtons:active > ion-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menuButtons > ion-icon[name='chevron-forward-outline'] {
+    opacity: 0;
+    margin-right: 10px;
+    transition: .3s;
+}
+
+.menuButtons:hover > ion-icon[name='chevron-forward-outline'],
+.menuButtons:focus > ion-icon[name='chevron-forward-outline'],
+.menuButtons:active > ion-icon[name='chevron-forward-outline'] {
+    opacity: 1;
+    animation: startSelectorAnimation 2s infinite;
+}
+
+@keyframes startSelectorAnimation {
+    0% {
+        transform: translateX(-50px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50px);
+    }
+}
+
+.defaultButton {
+    font-family: var(--default-font);
+    font-size: var(--default-font-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    outline: none;
+    border-radius: 5px;
+    width: fit-content;
+    transition: .1s ease;
+    overflow: hidden;
+}
+
+.buttonRegular {
+    padding: .5rem 1rem;
+    min-width: 120px;
+    max-width: 300px;
+}
+
+.buttonRegular {
+    color: var(--white);
+    fill: var(--white);
+    background-color: var(--purple);
+    border: none;
+}
+
+.buttonRegular > span, .navButtons > span {
+    margin-inline: 5px;
+}
+
+.buttonRegular > svg, .navButtons > svg {
+    width: 22px;
+    height: 22px;
+}
+
+.buttonRegular:hover {
+    color: var(--white);
+    fill: var(--white);
+    background: var(--orange);
+    cursor: pointer;
+}
+
+/* ! Navigation */
+nav {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    inset: 0 0 auto 0;
+    padding: 10px;
+    height: auto;
+    z-index: 2;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+#nav {
+    display: none;
+}
+
+.navButtonsWrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navButtons {
+    border: 3px solid transparent;
+    border-radius: 0;
+    padding: 10px 0;
+    margin-inline: 5px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    cursor: pointer;
+}
+
+.navButtons:hover > svg {
+    fill: var(--orange);
+}
+
+.navButtons:hover {
+    color: var(--orange);
+}
+
+.navButtons:before {
+    background: var(--orange);
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    height: 4px;
+    border-radius: 50px;
+    transition-property: left, right;
+    transition-duration: 0.175s;
+    transition-timing-function: ease-in;
+}
+
+.navButtons:hover:before, .navButtons:focus:before, .navButtons:active:before {
+    left: 0;
+    right: 0;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-out;
+}
+
+/* ! Player Wallet */
+.walletWrapper {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-weight: bold;
+    font-size: var(--default-font-size);
+    text-align: center;
+    background-color: var(--white);
+    border: 2px solid var(--black-light);
+    border-radius: 50px;
+    margin-inline: 10px;
+    width: 200px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.walletWrapper > img {
+    width: 30px;
+    position: absolute;
+    left: 10px;
+    border-radius: 100%;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addCoins {
+    color: var(--black);
+    background-color: transparent;
+    font-size: 30px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 10px;
+    transition: .1s ease;
+}
+
+.addCoins:hover {
+    color: var(--active);
+    cursor: pointer;
+}
+
+/* ! Theme and Wallet */
+.themeAndWallet {
+    display: flex;
+    align-items: center;
+}
+
+/* ! Toggle Dark Mode */
+.toggleTheme {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.switchThemes {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background-color: var(--black-light);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--black-light);
+}
+
+#theme {
+    position: absolute;
+    display: none;
+}
+
+.themeSlider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+#theme:checked ~ .themeSlider {
+    background-color: var(--white);
+}
+
+.themeSlider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M264 480A232 232 0 0132 248c0-94 54-178.28 137.61-214.67a16 16 0 0121.06 21.06C181.07 76.43 176 104.66 176 136c0 110.28 89.72 200 200 200 31.34 0 59.57-5.07 81.61-14.67a16 16 0 0121.06 21.06C442.28 426 358 480 264 480z" fill="white"/></svg>');
+    background-color: var(--black-light);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+#theme:checked ~ .themeSlider::before {
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M256 118a22 22 0 01-22-22V48a22 22 0 0144 0v48a22 22 0 01-22 22zM256 486a22 22 0 01-22-22v-48a22 22 0 0144 0v48a22 22 0 01-22 22zM369.14 164.86a22 22 0 01-15.56-37.55l33.94-33.94a22 22 0 0131.11 31.11l-33.94 33.94a21.93 21.93 0 01-15.55 6.44zM108.92 425.08a22 22 0 01-15.55-37.56l33.94-33.94a22 22 0 1131.11 31.11l-33.94 33.94a21.94 21.94 0 01-15.56 6.45zM464 278h-48a22 22 0 010-44h48a22 22 0 010 44zM96 278H48a22 22 0 010-44h48a22 22 0 010 44zM403.08 425.08a21.94 21.94 0 01-15.56-6.45l-33.94-33.94a22 22 0 0131.11-31.11l33.94 33.94a22 22 0 01-15.55 37.56zM142.86 164.86a21.89 21.89 0 01-15.55-6.44l-33.94-33.94a22 22 0 0131.11-31.11l33.94 33.94a22 22 0 01-15.56 37.55zM256 358a102 102 0 11102-102 102.12 102.12 0 01-102 102z"/></svg>');
+    background-color: var(--white);
+}
+
+/* ! Loading screen */
+#loadingScreen {
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    z-index: 999;
+    display: block;
+    position: fixed;
+    inset: 0;
+}
+
+#loadingText {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    font-family: var(--Ubuntu);
+    font-weight: bold;
+    font-size: var(--large-font-size);
+    text-align: center;
+    z-index: 9999;
+}
+
+#loaderTop {
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.2);
+    position: relative;
+}
+
+#loaderTop::before {
+    background: var(--orange);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 30px;
+    animation: moving 1s ease-in-out infinite;
+}
+
+#loadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#loadingIcon {
+    width: 7.25em;
+    transform-origin: center;
+    animation: loadingSpin 2s linear infinite;
+}
+
+#loadingProgress {
+    fill: none;
+    stroke: var(--black-light);
+    stroke-width: 5;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: loadingDash 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingSpin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loadingDash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
+
+/* ! Game Modes */
+#gameModeSelection {
+    display: none;
+    width: 100%;
+}
+
+#gameModeOptionsContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#gameModeOptionsContainer > .button {
+    position: absolute;
+    bottom: 20%;
+}
+
+#gameModeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: minmax(21.5vw, auto);
+    width: 100%;
+    gap: .1rem;
+    margin-inline: .1rem;
+}
+
+.gameModes {
+    padding: 2rem 1rem;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    cursor: pointer;
+}
+
+.gameModes:before {
+    background: var(--white);
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    height: 10px;
+    border-radius: 50px;
+    transition-property: left, right;
+    transition-duration: 0.175s;
+    transition-timing-function: ease-in;
+}
+
+.gameModes:hover:before, .gameModes:focus:before, .gameModes:active:before {
+    left: 30%;
+    right: 30%;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-out;
+}
+
+.gameInfo {
+    font-size: var(--default-font-size);
+    font-family: var(--default-font);
+    border-radius: 20px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    min-height: 420px;
+}
+
+.gameInfo > .gameDescription {
+    padding: 2rem;
+}
+
+.gameInfo > img {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.gameTag {
+    color: var(--white);
+    background-color: var(--active);
+    font-size: var(--tertiary-font-size);
+    padding: 1rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameTag svg {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+/* ! Login Page */
+#loginPage {
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1;
+}
+
+#loginForm {
+    display: block;
+}
+
+#registerForm {
+    display: none;
+}
+
+/* ! Modal */
+.loginModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* ! Login and Registration Panels */
+.loginPanel {
+    background: var(--white);
+    position: relative;
+    width: 400px;
+    padding: 60px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loginLogoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.loginLogoContainer img {
+    width: 70%;
+}
+
+.loginContent {
+    display: flex;
+    justify-content: center;
+}
+
+/* ! Input Fields */
+.inputFields {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.inputFields input {
+    color: var(--black);
+    background: transparent;
+    font-family: var(--fourth-font);
+    font-size: var(--default-font-size);
+    margin-bottom: 20px;
+    border: 2px solid var(--black);
+    border-radius: 3px;
+    outline: none;
+    width: 100%;
+    padding: 10px 10px;
+    transition: .3s ease;
+}
+
+.inputFields label {
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--default-font-size);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 5px;
+    margin: 10px 5px;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.inputFields input:focus,
+.inputFields input:valid {
+    border-color: var(--active);
+}
+
+.inputFields input:focus ~ label,
+.inputFields input:valid ~ label {
+    color: var(--active);
+    font-size: 14px;
+    top: -16px;
+    left: 0;
+}
+
+.inputFields input:disabled ~ label {
+    color: var(--inactive);
+}
+
+.inputFields input:disabled {
+    color: transparent;
+    border-color: var(--inactive);
+    cursor: not-allowed;
+}
+
+input:disabled ~ .showPasswordContainer > .showPasswordIcon {
+    fill: var(--inactive);
+    cursor: not-allowed;
+}
+
+/* ! Show Password Icon */
+.showPasswordContainer {
+    position: relative;
+}
+
+.showPasswordIcon:hover {
+    fill: var(--active);
+    cursor: pointer;
+}
+
+.showPasswordContainer {
+    position: relative;
+}
+
+.showPasswordIcon {
+    fill: var(--black);
+    position: absolute;
+    right: 8px;
+    bottom: -8px;
+    background-color: var(--white);
+    padding: 8px;
+    transition: .3s ease;
+}
+
+.showPasswordIcon:hover {
+    fill: var(--active);
+    cursor: pointer;
+}
+
+.buttonPreviousPanel {
+    background-color: var(--white);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 3px;
+    transition: .1s ease;
+    z-index: 10;
+}
+
+.buttonPreviousPanel:hover {
+    background-color: var(--active);
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* ! Warnings */
+.notificationIcon {
+    height: 16px;
+    width: 16px;
+    z-index: 2;
+}
+
+.warning-status {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.success-status {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+.notificationStatus {
+    color: var(--white);
+    background-color: none;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 0.5em;
+    border-radius: 5px;
+    width: 16px;
+    height: 16px;
+    transition: .3s ease;
+    overflow: hidden;
+}
+
+.notificationStatus:hover, .notificationStatus:focus, .notificationStatus:active {
+    width: 100%;
+}
+
+.notificationMessage {
+    color: var(--white);
+    font-size: 12px;
+    font-family: var(--tertiary-font);
+    letter-spacing: .6px;
+    opacity: 1;
+}
+
+.notificationStatus:hover > .notificationMessage {
+    animation: messageDisplay .4s ease-in-out;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 20px;
+}
+
+@keyframes messageDisplay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ! Dialogue */
+#storyDialogueScreen {
+    z-index: 5;
+}
+
+.characterDialogueContainer {
+    position: fixed;
+    display: flex;
+    inset: auto 10px 10px 10px;
+}
+
+.storyCharacter {
+    width: 30rem;
+    margin-right: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.speechBubble {
+    background-color: var(--white);
+    border-radius: 30px;
+    overflow: auto;
+    padding: 3rem;
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.dialogue {
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    text-align: justify;
+    text-overflow: ellipsis;
+}
+
+.dialogueControls {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+}
+
+.dialogueButtons {
+    color: var(--black);
+    background-color: transparent;
+    font-size: 2rem;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+
+.dialogueButtons:hover {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.buttonSkip {
+    color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.fastForward {
+    margin-left: 10px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.buttonSkip:hover > .fastForward {
+    animation: fastForward 2s infinite;
+}
+
+@keyframes fastForward {
+    0% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    55% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ! Game 1 */
+#gameOne {
+    display: none;
+}
+
+#gameplayArea {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" width="800" height="800"><g stroke-width="3.5" stroke="%23dfe4ebff" fill="none"><rect width="66.66666666666667" height="66.66666666666667" x="0" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="799.9999999999999"></rect></g></svg>');
+    background-position: center;
+    background-repeat: repeat;
+    background-color: var(--white);
+}
+
+/* ! Questions */
+.questionSection {
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    border-radius: 10px;
+    padding: 100px;
+    width: 900px;
+    height: 150px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#questionNumber {
+    color: var(--white);
+    background-color: var(--black);
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    right: 0;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ! Answers */
+.answersContainer {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
+    gap: 1rem;
+    margin: 2.5rem auto;
+    position: relative;
+}
+
+.responseOptionButton {
+    color: var(--black);
+    background-color: var(--white);
+    font-size: var(--medium-font-size);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    height: 150px;
+}
+
+.answerKeyIcon {
+    align-items: center;
+    padding-inline: 50px;
+    font-size: 3.125rem;
+}
+
+.answerKey {
+    text-align: left;
+    padding: 50px 50px 50px 0;
+}
+
+.responseOptionButton:nth-child(2) {
+    color: var(--white);
+    background-color: var(--green);
+}
+
+.responseOptionButton:nth-child(3) {
+    color: var(--white);
+    background-color: var(--red);
+}
+
+.responseOptionButton:nth-child(4) {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.responseOptionButton:nth-child(5) {
+    color: var(--white);
+    background-color: var(--yellow);
+}
+
+.responseOptionButton:hover {
+    color: var(--white);
+    background-color: var(--active);
+    cursor: pointer;
+}
+
+/* ! Timer CSS */
+.countdownTimerContainer {
+    background-color: var(--white);
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 4;
+}
+
+.countdownTimeDisplay {
+    background-color: var(--white);
+    width: 68.5px;
+    height: 68.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 7;
+}
+
+#countdownTime {
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    font-weight: bold;
+}
+
+.countdownTimerVisual {
+    background: -webkit-linear-gradient(left, var(--white) 50%, var(--green) 50%);
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    animation: time 60s steps(1000, start) infinite;
+    animation-fill-mode: forwards;
+    mask: radial-gradient(transparent 50%,#000 50%);
+    z-index: 5;
+}
+
+.countdownTimerProgress {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    animation: mask 60s steps(1000, start) infinite;
+    animation-fill-mode: forwards;
+    transform-origin: 100% 50%;
+    z-index: 6;
+}
+
+@keyframes time {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes mask {
+    0% {
+        background: var(--green);
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        background: var(--green);
+        -webkit-transform: rotate(-180deg);
+    }
+    50.01% {
+        background: var(--white);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        background: var(--white);
+        -webkit-transform: rotate(-180deg);
+    }
+}
+
+/* ! Game Two */
+#gameTwo {
+    display: none;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" width="800" height="800"><g stroke-width="3.5" stroke="%23dfe4ebff" fill="none"><rect width="66.66666666666667" height="66.66666666666667" x="0" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="799.9999999999999"></rect></g></svg>');
+    background-position: center;
+    background-repeat: repeat;
+    background-color: var(--white);
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#boardCellGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    box-sizing: border-box;
+}
+
+.boardCell {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 35px;
+    width: 80px;
+    height: 80px;
+}
+
+.even {
+    background-color: var(--black);
+    color: var(--black-light);
+}
+
+.odd {
+    background-color: var(--black-light);
+    color: var(--black);
+}
+
+#player {
+    background-image: url('/assets/images/icons/pawn.png');
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--orange);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    transition: .3s ease;
+}
+
+.finish {
+    background-color: var(--active);
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-carambola"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8" /></svg>');
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+.encounter {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bubble-text"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10h10" /><path d="M9 14h5" /><path d="M12.4 3a5.34 5.34 0 0 1 4.906 3.239a5.333 5.333 0 0 1 -1.195 10.6a4.26 4.26 0 0 1 -5.28 1.863l-3.831 2.298v-3.134a2.668 2.668 0 0 1 -1.795 -3.773a4.8 4.8 0 0 1 2.908 -8.933a5.33 5.33 0 0 1 4.287 -2.16" /></svg>');
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+.portal {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' opacity='.3' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-whirl'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M14 12a2 2 0 1 0 -4 0a2 2 0 0 0 4 0z' /><path d='M12 21c-3.314 0 -6 -2.462 -6 -5.5s2.686 -5.5 6 -5.5' /><path d='M21 12c0 3.314 -2.462 6 -5.5 6s-5.5 -2.686 -5.5 -6' /><path d='M12 14c3.314 0 6 -2.462 6 -5.5s-2.686 -5.5 -6 -5.5' /><path d='M14 12c0 -3.314 -2.462 -6 -5.5 -6s-5.5 2.686 -5.5 6' /></svg>");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+}
+
+#questionPrompt {
+    background-color: rgba(0, 0, 0, 0.664);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    display: none;
+}
+
+.questionContainer {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    width: 100%;
+    background-color: var(--white);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+#gameTwoQuestion {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    text-align: center;
+}
+
+.questionChoices {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+.questionAnswers {
+    color: var(--white);
+    background-color: var(--orange);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding: 2rem 4rem;
+    position: relative;
+    cursor: pointer;
+}
+
+/* ! Cash In Page */
+#paymentPage {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.678);
+    z-index: 999;
+    position: relative;
+}
+
+#paymentModal {
+    color: var(--black);
+    background-color: var(--grey);
+    height: calc(100vh - 12rem); /* Reduce height to accommodate margins */
+    width: 100%;
+    margin: 3rem;
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+#paymentTab {
+    width: 100%;
+    height: 35px;
+    flex: 0 0 10%;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+#paymentContainer {
+    display: flex;
+    flex: auto;
+    width: 100%;
+}
+
+#paymentTab {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#paymentTabContainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#closeButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.paymentTabs {
+    color: var(--black);
+    fill: var(--black);
+    background-color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    outline: none;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    width: fit-content;
+    transition: .1s ease;
+    overflow: hidden;
+}
+
+.paymentTabs > span, .paymentTabs > span {
+    margin-inline: 10px;
+}
+
+.paymentTabs > svg, .paymentTabs > svg {
+    width: 30px;
+    height: 30px;
+}
+
+#paymentTabContainer > .paymentTabs {
+    margin-right: 10px;
+}
+
+#prevTab {
+    display: none;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+#prevTab:hover {
+    color: var(--white);
+    background-color: var(--active);
+}
+
+.active-tab {
+    color: var(--white);
+    fill: var(--white);
+    background-color: var(--active);
+}
+
+.closeButton {
+    color: var(--white);
+    background-color: var(--red);
+    cursor: pointer;
+}
+
+#paymentPanel {
+    color: var(--black);
+    background-color: var(--white);
+    border-radius: 20px;
+    flex: 0 0 30%;
+    margin-right: 1rem;
+    height: 100%;
+    position: relative;
+}
+
+#shopPanel {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#shopPay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#shopThanks {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#shopThanks .centeredContainer img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: auto;
+}
+
+#shopThanks > span {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    text-align: center;
+}
+
+#paymentInputs {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#otherPaymentMethods {
+    color: var(--black);
+    background-color: var(--white);
+    font-family: var(--default-font);
+    font-weight: bold;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+}
+
+#otherPaymentMethods > svg {
+    width: 120px;
+    height: 120px;
+}
+
+#paymentHeader {
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    margin-bottom: 35px;
+}
+
+#paymentLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paymentLogo > img {
+    margin-top: 1.875rem;
+    width: 18.75rem;
+    height: auto;
+}
+
+#paymentState {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+#paymentStatus {
+    font-family: var(--secondary-font);
+    font-size: var(--medium-font-size);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+
+#selectedProductHeader, #bundlePrice {
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    font-weight: bold;
+}
+
+#proceedButtonPanel {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+#coinsBundleGrid {
+    flex: 1;
+}
+
+#coinsBundleGrid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.coinsBundle {
+    color: var(--black);
+    background-color: var(--white);
+    border: 5px solid transparent;
+    border-radius: 20px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: .3s ease;
+}
+
+.coinsBundle:hover {
+    color: var(--white);
+    background-color: var(--active);  
+    border-color: var(--orange-shade);
+}
+
+.coinsBundle:hover .bundlePrice {
+    color: var(--active);
+    background-color: var(--white);
+}
+
+.coinsBundle:active,
+.coinsBundle:focus {
+    border-color: var(--active);
+}
+
+.bundleInfo {
+    font-size: var(--medium-font-size);
+    font-family: var(--secondary-font);
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+
+.bundlePrice {
+    color: var(--white);
+    background-color: var(--active);
+    font-size: var(--medium-font-size);
+    font-family: var(--default-font);
+    font-weight: bold;
+    text-align: center;
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transition: .1s ease;
+}
+
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageWrapper > img {
+    margin: 2rem;
+    border-radius: 20px;
+    width: 100px;
+}
+
+.checkoutButton {
+    color: var(--black);
+    fill: var(--black);
+    background-color: transparent;
+    font-family: var(--default-font);
+    font-size: var(--default-font-size);
+    border: 2px solid var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    outline: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    min-width: 120px;
+    max-width: 300px;
+    width: fit-content;
+    transition: .1s ease;
+    overflow: hidden;
+}
+
+.checkoutButton > span, .navButtons > span {
+    margin-inline: 10px;
+}
+
+.checkoutButton > svg, .navButtons > svg {
+    width: 25px;
+    height: 25px;
+}
+
+.checkoutButton:hover {
+    color: var(--white);
+    fill: var(--white);
+    background: var(--orange);
+    border-color: transparent;
+    cursor: pointer;
+}
+
+/* ! Game Over Screen */
+#gameOverScreen {
+    display: none;
+    position: relative;
+    height: 100vh;
+}
+
+.gameOverWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#gameOverContentWrapper  {
+    border-radius: 20px;
+    width: 32.45vw;
+    height: 4.20vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7.5rem;
+    padding: 80px 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#celebrationIcon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-6deg);
+}
+
+#gameOverHeader {
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    font-weight: bold;
+}
+
+#gameOverButtonsContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameEndButton {
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    margin-inline: 30px;
+    padding: 2rem 4rem;
+    width: 15.625vw;
+    outline: none;
+    transition: .1s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.gameEndButton:hover {
+    color: var(--white);
+    background-color: var(--active);
+    cursor: pointer;
+}
+
+#gameOverFactsContainer {
+    background-color: var(--active);
+    border: 5px solid #98402c;
+    border-radius: 20px;
+    width: 36.45vw;
+    height: 13.889vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 3.125rem;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#gameOverFactsContent {
+    position: relative;
+}
+
+#gameOverFactsContent > p {
+    color: var(--white);
+    font-family: var(--default-font);
+    font-size: var(--font-size-normal);
+    display: flex;
+}
+
+#triviaIcon {
+    position: absolute;
+    width: auto;
+    height: 120px;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-6deg);
+    aspect-ratio: 9 / 16;
+}
+
+/* ! Game Three */
+#gameThree {
+    display: none;
+}
+
+#gameThreeWrapper {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" width="800" height="800"><g stroke-width="3.5" stroke="%23dfe4ebff" fill="none"><rect width="66.66666666666667" height="66.66666666666667" x="0" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="799.9999999999999"></rect></g></svg>');
+    background-position: center;
+    background-repeat: repeat;
+    background-color: var(--white);
+    height: 100vh;
+    width: 100%;
+}
+
+.gameThreeBoard {
+    box-sizing: content-box;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.gameContainer {
+    position: relative;
+    width: 100%;
+    display: grid;
+    gap: 0.6em;
+}
+
+.movesmade {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-size: var(--medium-font-size);
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+.movesmade span {
+    font-weight: 600;
+}
+  
+.card-container {
+    position: relative;
+    width: 8.25em;
+    height: 8.25em;
+    cursor: pointer;
+}
+
+.card-before,
+.card-after {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--black);
+    transition: transform 0.3s ease-out;
+    backface-visibility: hidden;
+}
+
+.card-before {
+    background-color: var(--white);
+    font-size: 2.8em;
+    font-weight: 600;
+}
+
+.card-before .placeholder-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card-after .image {
+    width: 89%;
+    height: 90%
+}
+
+.card-after {
+    background-color: var(--white);
+    transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-before {
+    transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-after {
+    transform: rotateY(0deg);
+}
+
+/* ! Game Four */
+#gameFour {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" width="800" height="800"><g stroke-width="3.5" stroke="%23dfe4ebff" fill="none"><rect width="66.66666666666667" height="66.66666666666667" x="0" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="799.9999999999999"></rect></g></svg>');
+    background-position: center;
+    background-repeat: repeat;
+    background-color: var(--white);
+    height: 100vh;
+    width: 100vw;
+    display: none;
+}
+
+.spinnerWrapper {
+    width: 90%;
+    max-width: 35em;
+    max-height: 100vh;
+    background-color: var(--white);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 25%;
+    padding: 3em;
+    border-radius: 1em;
+}
+
+.spinnerContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#selectedDisasterWrapper {
+    display: none;
+    width: 90%;
+    max-width: 35em;
+    max-height: 100vh;
+    background-color: var(--white);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 75%;
+    padding: 3em;
+    border-radius: 1em;
+}
+
+#topicValue > p {
+    color: var(--black);
+    font-family: var(--default-font);
+    font-size: var(--large-font-size);
+    margin-bottom: 50px;
+}
+
+#disasterImage {
+    width: 30%;
+}
+
+.openDisasterGuide > button {
+    margin-inline: 5px;
+}
+  
+#wheel {
+    max-height: inherit;
+    width: inherit;
+    top: 0;
+    padding: 0;
+}
+  
+@keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+}
+  
+#spinButton {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 26%;
+    width: 26%;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0;
+    background: radial-gradient(#fdcf3b 50%, #d88a40 85%);
+    color: #c66e16;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+  
+.spinnerContainer img {
+    position: absolute;
+    width: 4em;
+    top: 45%;
+    right: -8%;
+}
+  
+#topicValue {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 1.5em;
+    color: #202020;
+    font-weight: 500;
+}
+
+/* ! Intro Loading Screen */
+#main-loading-screen {
+    background-color: var(--black);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    border-bottom: 0 solid black;
+}
+
+#klever-loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    z-index: 999;
+}
+
+.mainLoaded {
+    width: 100%;
+    height: 100%;
+    animation: 0.8s ease-in-out pageLoad forwards;
+    animation-delay: 5.5s;
+}
+
+.logoLoaded {
+    opacity: 0;
+    animation: 4s ease-in-out pageLoadLogo forwards;
+    animation-delay: 1s;
+}
+
+/* ! Animations */
+@keyframes pageLoad {
+    from {
+        height: 100%;
+        border-bottom: 0 solid black;
+    }
+    50% {
+        border-bottom: 100px solid black;
+    }
+    to {
+        height: 0;
+        border-bottom: 0 solid black;
+    }
+}
+
+@keyframes pageLoadLogo {
+    from {
+        opacity: 0;
+    }
+    33% {
+        opacity: 1;
+    }
+    66% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* ! Game Five */
+#gameFive {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" width="800" height="800"><g stroke-width="3.5" stroke="%23dfe4ebff" fill="none"><rect width="66.66666666666667" height="66.66666666666667" x="0" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="0"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="66.66666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="133.33333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="200"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="266.6666666666667"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="333.33333333333337"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="400.00000000000006"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="466.66666666666674"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="533.3333333333334"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="600"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="666.6666666666666"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="733.3333333333333"></rect><rect width="66.66666666666667" height="66.66666666666667" x="0" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="66.66666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="133.33333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="200" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="266.6666666666667" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="333.33333333333337" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="400.00000000000006" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="466.66666666666674" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="533.3333333333334" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="600" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="666.6666666666666" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="733.3333333333333" y="799.9999999999999"></rect><rect width="66.66666666666667" height="66.66666666666667" x="799.9999999999999" y="799.9999999999999"></rect></g></svg>');
+    background-position: center;
+    background-repeat: repeat;
+    background-color: var(--white);
+}
+
+.gameFiveContainer {
+    width: 400px;
+    height: 330px;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#word {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#guessInput {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#playerChoices {
+    display: flex;
+    flex-direction: row;
+}
+
+#guessButton {
+    padding: 6px 6px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-inline: 5px;
+}
+
+#passButton {
+    padding: 6px 6px;
+    background-color: #df3d3d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-inline: 5px;
+}
+
+#guessButton, #passButton {
+    font-size: 19px;
+}
+
+#guessButton:hover {
+    background-color: #45a049;
+}
+
+#passButton:hover {
+    background-color: #b62b2b;
+}
+
+#counter {
+    margin-top: 20px;
+}
+
+/* ! Content Not Yet Available Page */
+#contentUnavailablePage {
+    color: var(--white);
+    fill: var(--white);
+    background-color: var(--black);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;
+}
+
+#contentUnavailablePage > svg {
+    width: 20%;
+    height: 20%;
+}
+
+#contentUnavailablePage > span {
+    font-family: var(--tertiary-font);
+    font-size: var(--large-font-size);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+}
+
+#contentUnavailablePage > button {
+    color: var(--white);
+    background-color: transparent;
+    font-family: var(--tertiary-font);
+    font-size: var(--medium-font-size);
+    border: 3px solid var(--white);
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    margin-top: 5rem;
+    outline: none;
+    cursor: pointer;
+}
+
+#contentUnavailablePage > button:hover {
+    color: var(--black);
+    background-color: var(--white);
+}
